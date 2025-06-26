@@ -9,38 +9,35 @@ st.sidebar.divider()
 st.title("QuLab")
 st.divider()
 
-st.markdown('''
-# Exploring Probability Distributions
+st.markdown("""
+In this lab, we will explore the concept of Geometric Brownian Motion (GBM) and its application in financial modeling. 
+GBM is a continuous-time stochastic process widely used to model stock prices and other financial instruments.
 
-In this lab, we will explore various probability distributions and their properties. We'll focus on the following distributions:
+The Geometric Brownian Motion is defined by the following stochastic differential equation:
 
-1. Normal Distribution
-2. Binomial Distribution
-3. Poisson Distribution
+$$dS_t = \mu S_t dt + \sigma S_t dW_t$$
 
-We'll visualize these distributions, calculate probabilities, and explore how changing parameters affects their shapes and properties.
+Where:
+- $S_t$ is the stock price at time $t$
+- $\mu$ is the drift (expected return)
+- $\sigma$ is the volatility
+- $dW_t$ is a Wiener process (standard Brownian motion)
 
-## Key Concepts
-
-- **Probability Density Function (PDF)**: A function that describes the relative likelihood for a continuous random variable to take on a given value.
-- **Cumulative Distribution Function (CDF)**: A function that gives the probability that a random variable is less than or equal to a certain value.
-- **Parameters**: Values that define the shape and behavior of a distribution (e.g., mean and standard deviation for the normal distribution).
-
-Let's explore each distribution in detail and see how they behave under different conditions!
-''')
+We'll simulate GBM paths, visualize them, and analyze their properties across different pages of this application.
+""")
 
 # Your code starts here
-page = st.sidebar.selectbox(label="Navigation", options=["Normal Distribution", "Binomial Distribution", "Poisson Distribution"])
+page = st.sidebar.selectbox(label="Navigation", options=["GBM Simulation", "Parameter Analysis", "Option Pricing"])
 
-if page == "Normal Distribution":
-    from application_pages.normal_distribution import run_normal_distribution
-    run_normal_distribution()
-elif page == "Binomial Distribution":
-    from application_pages.binomial_distribution import run_binomial_distribution
-    run_binomial_distribution()
-elif page == "Poisson Distribution":
-    from application_pages.poisson_distribution import run_poisson_distribution
-    run_poisson_distribution()
+if page == "GBM Simulation":
+    from application_pages.gbm_simulation import run_gbm_simulation
+    run_gbm_simulation()
+elif page == "Parameter Analysis":
+    from application_pages.parameter_analysis import run_parameter_analysis
+    run_parameter_analysis()
+elif page == "Option Pricing":
+    from application_pages.option_pricing import run_option_pricing
+    run_option_pricing()
 # Your code ends
 
 st.divider()
